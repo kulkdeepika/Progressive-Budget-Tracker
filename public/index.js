@@ -124,6 +124,7 @@ function sendTransaction(isAdding) {
   })
   .then(response => {    
     return response.json();
+    
   })
   .then(data => {
     if (data.errors) {
@@ -133,6 +134,7 @@ function sendTransaction(isAdding) {
       // clear form
       nameEl.value = "";
       amountEl.value = "";
+      //location.href = "/";
     }
   })
   .catch(err => {
@@ -155,33 +157,29 @@ document.querySelector("#sub-btn").onclick = function() {
 
 //============================================================
 
-function saveRecord(record){
-    console.log("SAVE RECORD HIT");
-    const request = window.indexedDB.open("offlineTranscationsDB", 1);
+// function saveRecord(record){
+//     console.log("SAVE RECORD HIT");
+//     const request = window.indexedDB.open("offlineTranscationsDB", 1);
 
-    request.onupgradeneeded = event => {
-      console.log("upgrade needed hit");
-      db = event.target.result;
+//     request.onupgradeneeded = event => {
+//       console.log("upgrade needed hit");
+//       db = event.target.result;
 
-      const offlineTransactions = db.createObjectStore("offlineTranscationsList", {keyPath: "date"});
+//       const offlineTransactions = db.createObjectStore("offlineTranscationsList", {keyPath: "date"});
 
-    }
+//     }
 
-    request.onsuccess = () => {
-    console.log("success event hit");
-    const db = request.result;
+//     request.onsuccess = () => {
+//     console.log("success event hit");
+//     const db = request.result;
 
-    const transaction = db.transaction(["offlineTranscationsList"], "readwrite");
-    const offlineTransactions = transaction.objectStore("offlineTranscationsList");
-    // const statusIndex = offlineTranscationsList.index("statusIndex");
+//     const transaction = db.transaction(["offlineTranscationsList"], "readwrite");
+//     const offlineTransactions = transaction.objectStore("offlineTranscationsList");
+//     // const statusIndex = offlineTranscationsList.index("statusIndex");
 
-    offlineTransactions.add(record);
+//     offlineTransactions.add(record);
 
-  }
+//   }
 
-
-
-
-
-}
+// }
 
