@@ -26,7 +26,7 @@ Enter the name of the expense and the amount spent, and click on add or subtract
 
 # Environment
 
-[Budget Tracker](https://git.heroku.com/salty-everglades-97004.git)
+[Budget Tracker](https://salty-everglades-97004.herokuapp.com/)
 
 
 
